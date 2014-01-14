@@ -1,5 +1,5 @@
 // USAGE 
-// memcache2graphite <memcache server address> <graphite server address> <memcache variable name> <graphite metric name>
+// m2g <memcache server address> <graphite server address> <memcache variable name> <graphite metric name>
 
 #include <iostream>
 #include <stdio.h>
