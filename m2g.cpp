@@ -123,7 +123,7 @@ int main(int argc, char *argv[]) {
 	cl_memc.conn(mc_host, mc_port);
 	cl_memc.send_data("get " + mc_var + "\r\n");
 	mc_resp = cl_memc.receive(1024);
-	//cl_memc.send_data("delete " + mc_var + "\r\n");
+	cl_memc.send_data("delete " + mc_var + "\r\n");
 	cl_memc.send_data("quit\r\n");
 	
 	// Extract only the result we need from memcached response
@@ -145,8 +145,6 @@ int main(int argc, char *argv[]) {
 	
 	// Create the string to send to graphite
 	std::string graphite_data = gr_metric + " " + metric_val + " " + str_timestamp + "\r\n";
-	
-	//cout << graphite_data;
 	
 	cl_grap.conn(gr_host, gr_port);
 	cl_grap.send_data(graphite_data);
